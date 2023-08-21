@@ -2,7 +2,7 @@
   "name": "@palmbeach/nuxt-content-routes",
   "version": "1.0.2",
   "description": "Automatically generate routes from your Nuxt Content files and directories. Respects i18n prefix strategy.",
-  "repository": "palmbeach/nuxt-content-routes",
+  "repository": "palmbeach-interactive/nuxt-content-routes",
   "license": "MIT",
   "type": "module",
   "exports": {
