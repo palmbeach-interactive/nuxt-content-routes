@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.2
+
+[compare changes](https://undefined/undefined/compare/v1.0.4...v1.0.2)
+
+### 💅 Refactors
+
+- Fix package version (6107ed2)
+
+### ❤️  Contributors
+
+- Marc Widmer <marc@pbi.io>
+
 ## v1.0.4
 
 [compare changes](https://undefined/undefined/compare/v1.0.1...v1.0.4)
