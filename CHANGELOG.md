@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.4
+
+[compare changes](https://undefined/undefined/compare/v1.0.3...v1.0.4)
+
+### 💅 Refactors
+
+- Update readme (21fe06a)
+
+### ❤️  Contributors
+
+- Marc Widmer <marc@pbi.io>
+
 ## v1.0.3
 
 [compare changes](https://undefined/undefined/compare/v1.0.2...v1.0.3)
