@@ -15,7 +15,7 @@ async function listFilesInDirectory(
   const regexStartDigits = /^\d+\./
 
   // Remove junk files
-  entries = entries.filter((item) => !/(^|\/)\.[^\/\.]|^_dir/g.test(item.name))
+  entries = entries.filter((item) => !/(^|\/)\.[^/.]|^_dir/g.test(item.name))
 
   const routeSlugify = (str: string) =>
     str.replace(regexStartDigits, '').toLowerCase()
@@ -34,7 +34,7 @@ async function listFilesInDirectory(
         const directoryName = routeSlugify(entry.name)
 
         //Build final directory path
-        let directoryPath = path.join(
+        const directoryPath = path.join(
           preventDefaultLocaleAsPrefix ? '' : cleanPrefix,
           directoryName,
         )
