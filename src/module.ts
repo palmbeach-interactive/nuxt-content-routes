@@ -1,22 +1,3 @@
-// import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
-
-// // Module options TypeScript interface definition
-// export interface ModuleOptions {}
-
-// export default defineNuxtModule<ModuleOptions>({
-//   meta: {
-//     name: 'my-module',
-//     configKey: 'myModule'
-//   },
-//   // Default configuration options of the Nuxt module
-//   defaults: {},
-//   setup (options, nuxt) {
-//     const resolver = createResolver(import.meta.url)
-
-//     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-//     addPlugin(resolver.resolve('./runtime/plugin'))
-//   }
-// })
 import { defineNuxtModule } from '@nuxt/kit'
 import fs from 'fs/promises'
 import path from 'path'
@@ -102,19 +83,20 @@ export default defineNuxtModule({
   async setup(_moduleOptions: {}, nuxt) {
     const directory = './content'
     const prefix = ''
-    //@ts-ignore  nuxt/18n config type issue
-    const i18nDefaultLocale = nuxt.options.i18n.defaultLocale
-    //@ts-ignore  nuxt/18n config type issue
-    const i18nStrategy = nuxt.options.i18n.strategy
+    const i18nDefaultLocale =
+    // @ts-ignore
+      'i18n' in nuxt.options ? nuxt.options.i18n.defaultLocale : ''
+    const i18nStrategy =
+    // @ts-ignore
+      'i18n' in nuxt.options ? nuxt.options.i18n.strategy : ''
 
     console.info('Build Routes for:', directory + '...')
-    //@ts-ignore  nuxt/18n config type issue
-    if (nuxt.options.i18n) {
+    if ('i18n' in nuxt.options) {
       console.info(
         'RotesList i18n:',
-        //@ts-ignore  nuxt/18n config type issue
+        // @ts-ignore
         nuxt.options.i18n.defaultLocale,
-        //@ts-ignore  nuxt/18n config type issue
+        // @ts-ignore
         nuxt.options.i18n.strategy,
       )
     }
