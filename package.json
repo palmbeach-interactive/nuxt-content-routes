@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-content-routes",
+  "name": "@palmbeach/nuxt-content-routes",
   "version": "1.0.1",
   "description": "Automatically generate routes from your Nuxt Content files and directories. Respects i18n prefix strategy.",
   "repository": "palmbeach/nuxt-content-routes",
