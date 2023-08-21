@@ -1,7 +1,6 @@
 # Nuxt Content Routes
 
 [![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
@@ -91,10 +90,7 @@ npm run release
 [npm-version-src]: https://img.shields.io/npm/v/@palmbeach/nuxt-content-routes/latest.svg?style=flat&colorA=18181B&colorB=28CF8D
 [npm-version-href]: https://npmjs.com/package/@palmbeach/nuxt-content-routes
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-content-routes.svg?style=flat&colorA=18181B&colorB=28CF8D
-[npm-downloads-href]: https://npmjs.com/package/@palmbeach/nuxt-content-routes
-
-[license-src]: https://img.shields.io/npm/l/nuxt-content-routes.svg?style=flat&colorA=18181B&colorB=28CF8D
+[license-src]: https://img.shields.io/npm/l/@palmbeach/nuxt-content-routes.svg?style=flat&colorA=18181B&colorB=28CF8D
 [license-href]: https://npmjs.com/package/@palmbeach/nuxt-content-routes
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js
