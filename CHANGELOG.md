@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v1.0.6
+
+[compare changes](https://undefined/undefined/compare/v1.0.5...v1.0.6)
+
+### 🩹 Fixes
+
+- Ts support for nuxt.config settings (597fcde)
+
+### 💅 Refactors
+
+- Remove unnecessary code (6ce7eb9)
+
+### 📖 Documentation
+
+- Update playground example & documentation (fae5982)
+- Update docs & playground (b92bce6)
+
+### ❤️  Contributors
+
+- Marc Widmer <marc@pbi.io>
+
 ## v1.0.5
 
 [compare changes](https://undefined/undefined/compare/v1.0.4...v1.0.5)
