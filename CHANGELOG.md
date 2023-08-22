@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.0.7
+
+[compare changes](https://undefined/undefined/compare/v1.0.6...v1.0.7)
+
+### 🩹 Fixes
+
+- Typo in log output (f983839)
+
+### 📖 Documentation
+
+- Add roadmap feature (19acc5b)
+- Fix wrong command (7f9ce77)
+
+### ❤️  Contributors
+
+- Marc Widmer <marc@pbi.io>
+
 ## v1.0.6
 
 [compare changes](https://undefined/undefined/compare/v1.0.5...v1.0.6)
