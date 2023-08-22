@@ -13,7 +13,7 @@ Zero impact on runtime performance.
 Might become obsolete with upcoming Nuxt Content releases.
 
 ```TypeScript
-//Only executed on build via nuxt generate / nuxt build
+//Only executed on build via nuxt build
 const paths = await listFilesInDirectory(
   directory,
   prefix,
