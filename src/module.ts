@@ -83,11 +83,11 @@ export default defineNuxtModule({
     const i18nDefaultLocale = 'i18n' in nuxt.options ? (nuxt.options.i18n as { defaultLocale?: string }).defaultLocale || '' : ''
     const i18nStrategy = 'i18n' in nuxt.options ? (nuxt.options.i18n as { strategy?: string }).strategy || '' : ''
 
-    console.info('Build Routes for:', directory + '...')
+    console.info('NuxtContentRoutes:Directory:', directory)
     
     if ('i18n' in nuxt.options) {
       console.info(
-        'RotesList i18n:',
+        'NuxtContentRoutes:i18n:',
         i18nDefaultLocale,
         i18nStrategy,
       )
