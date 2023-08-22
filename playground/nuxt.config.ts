@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    detectBrowserLanguage: false, //https://github.com/nuxt-modules/i18n/issues/1632
+    detectBrowserLanguage: false, 
     defaultLocale: 'en',
     locales: [
       {
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     ],
     lazy: true,
     langDir: './locales/',
-    strategy: 'prefix_except_default',
+    strategy: 'prefix_except_default', //https://i18n.nuxtjs.org/strategies/ (only prefix_except_default|prefix is supported with nurxt-content-routes)
     vueI18n: './i18n.config.ts',
   },
 })

@@ -4,11 +4,13 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-A small add-on for [Nuxt Content](https://content.nuxtjs.org). Might become obsolete with upcoming Nuxt Content releases.
+A small add-on for [Nuxt Content](https://content.nuxtjs.org) to generate static routes for markdown files.
 
 Routes are generated during build from the Nuxt Content directory when the `documentDriven` option cannot be used. For example when nuxt content and static pages are mixed or a specific i18n strategy is needed.
 
 Zero impact on runtime performance.
+
+Might become obsolete with upcoming Nuxt Content releases.
 
 ```TypeScript
 //Only executed on build via nuxt generate / nuxt build
@@ -31,9 +33,13 @@ nuxt.hook('nitro:config', (nitroConfig) => {
 
 ## Features
 
-- &nbsp;Generates all routes from nested directories
+- &nbsp;Generates all routes for Nuxt Content markdown files in content directory
+- &nbsp;Supports i18n strategy 'prefix' and 'prefix_except_default'
 - &nbsp;Generate clean path names (no order prefixes, no file extensions, no capital letters)
-- &nbsp;i18n support (locale prefix, strategy: 'prefix_except_default')
+
+### Roadmap
+
+- &nbsp;Add support for i18n strategy 'prefix_and_default'
 
 ## Quick Setup
 
@@ -63,7 +69,7 @@ export default defineNuxtConfig({
 ## Playground / Example
 
 ```bash
-#Content directory structure in playground
+#content directory structure in playground
 content/
 ├─ de/
 │  ├─ 1.foo/
@@ -83,28 +89,30 @@ content/
 │  ├─ index.md
 ├─ index.md
 
-#Generated routes ...
-✔ Generated public .output/public                                                                                                        
-[nuxt] nitro:build:public-assets: 0.01ms                                                                                                        
-[nuxt] prerender:routes: 0.002ms                                                                                                                
-[nitro] prerender:routes: 0.076ms                                                                                                              
-ℹ Initializing prerenderer                                                                                                             
-[nitro] rollup:before: 0.058ms                                                                                                          
-[nitro] compiled: 0.008ms                                                                                                               
-ℹ Prerendering 11 routes   
+#routes: nuxt.config.ts > i18n > strategy = 'prefix'
+├─ /de
+├─ /en
+├─ /
+├─ /en/foo/bar
+├─ /de/foo/bar
+├─ /en/bar/foo
+├─ /de/bar/foo
+├─ /de/bar
+├─ /de/foo
+├─ /en/foo
+├─ /en/bar 
 
-├─ /  
-├─ /foo  
-├─ /bar 
-├─ /foo/bar  
-├─ /bar/foo 
-├─ /de 
-├─ /de/foo 
-├─ /de/bar 
-├─ /de/foo/bar 
-├─ /de/bar/foo 
-
-├─ /api/_content/cache.1692696979003.json           
+#routes: nuxt.config.ts > i18n > strategy = 'prefix_except_default'
+├─ /de
+├─ /bar
+├─ /
+├─ /foo
+├─ /de/foo/bar
+├─ /de/bar/foo
+├─ /bar/foo
+├─ /foo/bar
+├─ /de/foo
+├─ /de/bar
 ```
 
 ## Development
