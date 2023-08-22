@@ -53,12 +53,6 @@ async function listFilesInDirectory(
         path.basename(entry.name, path.extname(entry.name)),
       )
 
-      //If the file is the index file, we don't want to ouput the filename
-      //Prevent default locale as prefix if strategy is prefix_except_default
-      // if (name === 'index') {
-      //   return path.join('/', prefix == 'de' ? '' : prefix)
-      // }
-
       //Build fina file path
       //Prevent default locale as prefix if strategy is prefix_except_default
       let finalPath = path.join(
