@@ -75,27 +75,21 @@ async function listFilesInDirectory(
 
 export default defineNuxtModule({
   async setup(_moduleOptions: {}, nuxt) {
-    const directory =
-      'content' in nuxt.options
-        ? //@ts-ignore
-          nuxt.options.content?.sources.content.base
-        : './playground/content'
+    //Settings from nuxt.config.ts
+    //content folder for '@nuxt/content'  
+    //opt.: i18n setttings for '@nuxtjs/i18n',
     const prefix = ''
-    const i18nDefaultLocale =
-      //@ts-ignore
-      'i18n' in nuxt.options ? nuxt.options.i18n.defaultLocale : ''
-    const i18nStrategy =
-      //@ts-ignore
-      'i18n' in nuxt.options ? nuxt.options.i18n.strategy : ''
+    const directory = 'content' in nuxt.options ? (nuxt.options as any).content?.sources.content.base : './playground/content'
+    const i18nDefaultLocale = 'i18n' in nuxt.options ? (nuxt.options.i18n as { defaultLocale?: string }).defaultLocale || '' : ''
+    const i18nStrategy = 'i18n' in nuxt.options ? (nuxt.options.i18n as { strategy?: string }).strategy || '' : ''
 
     console.info('Build Routes for:', directory + '...')
+    
     if ('i18n' in nuxt.options) {
       console.info(
         'RotesList i18n:',
-        //@ts-ignore
-        nuxt.options.i18n.defaultLocale,
-        //@ts-ignore
-        nuxt.options.i18n.strategy,
+        i18nDefaultLocale,
+        i18nStrategy,
       )
     }
 
