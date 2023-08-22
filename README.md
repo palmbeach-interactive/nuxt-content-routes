@@ -32,7 +32,7 @@ nuxt.hook('nitro:config', (nitroConfig) => {
 ## Features
 
 - &nbsp;Generates all routes from nested directories
-- &nbsp;Generate clean path names (no order prefixes, no file extensions, no Capital letters)
+- &nbsp;Generate clean path names (no order prefixes, no file extensions, no capital letters)
 - &nbsp;i18n support (locale prefix, strategy: 'prefix_except_default')
 
 ## Quick Setup
@@ -58,6 +58,53 @@ export default defineNuxtConfig({
     '@palmbeach/nuxt-content-routes'
   ]
 })
+```
+
+## Playground / Example
+
+```bash
+#Content directory structure in playground
+content/
+├─ de/
+│  ├─ 1.foo/
+│  │  ├─ 1.bar.md
+│  │  ├─ index.md
+│  ├─ 2.bar/
+│  │  ├─ 1.foo.md
+│  │  ├─ index.md
+│  ├─ index.md
+├─ en/
+│  ├─ 1.foo/
+│  │  ├─ 1.bar.md
+│  │  ├─ index.md
+│  ├─ 2.bar/
+│  │  ├─ 1.foo.md
+│  │  ├─ index.md
+│  ├─ index.md
+├─ index.md
+
+#Generated routes ...
+✔ Generated public .output/public                                                                                                        
+[nuxt] nitro:build:public-assets: 0.01ms                                                                                                        
+[nuxt] prerender:routes: 0.002ms                                                                                                                
+[nitro] prerender:routes: 0.076ms                                                                                                              
+ℹ Initializing prerenderer                                                                                                             
+[nitro] rollup:before: 0.058ms                                                                                                          
+[nitro] compiled: 0.008ms                                                                                                               
+ℹ Prerendering 11 routes   
+
+├─ /  
+├─ /foo  
+├─ /bar 
+├─ /foo/bar  
+├─ /bar/foo 
+├─ /de 
+├─ /de/foo 
+├─ /de/bar 
+├─ /de/foo/bar 
+├─ /de/bar/foo 
+
+├─ /api/_content/cache.1692696979003.json           
 ```
 
 ## Development
