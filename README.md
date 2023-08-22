@@ -40,6 +40,7 @@ nuxt.hook('nitro:config', (nitroConfig) => {
 ### Roadmap
 
 - &nbsp;Add support for i18n strategy 'prefix_and_default'
+- &nbsp;Add support for multiple Nuxt content directories
 
 ## Quick Setup
 
