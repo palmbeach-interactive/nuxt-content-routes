@@ -37,11 +37,10 @@ nuxt.hook('nitro:config', (nitroConfig) => {
 - &nbsp;Supports i18n strategy 'prefix' and 'prefix_except_default'
 - &nbsp;Generate clean path names (no order prefixes, no file extensions, no capital letters)
 
-```[tasklist]
 ### Todo
-- [ ] [Support for i18n strategy 'prefix_and_default'](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/1)
-- [ ] [Support for multiple Nuxt Content directories'](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/2)
-```
+
+- [Support for i18n strategy 'prefix_and_default'](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/1)
+- [Support for multiple Nuxt Content directories'](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/2)
 
 ## Quick Setup
 
