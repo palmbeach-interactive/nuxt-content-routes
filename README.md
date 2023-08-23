@@ -4,13 +4,13 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-A small add-on for [Nuxt Content](https://content.nuxtjs.org) to generate static routes for markdown files.
+A small add-on for [Nuxt Content](https://content.nuxtjs.org) that generates static routes for markdown files.
 
-Routes are generated during build from the Nuxt Content directory when the `documentDriven` option cannot be used. For example when nuxt content and static pages are mixed or a specific i18n strategy is needed.
+Routes are generated during the build process from the Nuxt Content directory when the `documentDriven` option cannot be utilized. This is particularly useful in scenarios where Nuxt Content and static pages are combined, or when a specific i18n strategy is required.
 
 Zero impact on runtime performance.
 
-Might become obsolete with upcoming Nuxt Content releases.
+Please note that this add-on might become obsolete with upcoming Nuxt Content releases.
 
 ```TypeScript
 //Only executed on build via nuxt build
@@ -37,10 +37,11 @@ nuxt.hook('nitro:config', (nitroConfig) => {
 - &nbsp;Supports i18n strategy 'prefix' and 'prefix_except_default'
 - &nbsp;Generate clean path names (no order prefixes, no file extensions, no capital letters)
 
-### Roadmap
-
-- &nbsp;Add support for i18n strategy 'prefix_and_default'
-- &nbsp;Add support for multiple Nuxt content directories
+```[tasklist]
+### Todo
+- [ ] [Support for i18n strategy 'prefix_and_default'](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/1)
+- [ ] [Support for multiple Nuxt Content directories'](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/2)
+```
 
 ## Quick Setup
 
