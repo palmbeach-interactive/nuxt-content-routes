@@ -67,6 +67,10 @@ export default defineNuxtConfig({
 })
 ```
 
+## Contributing
+
+- Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
 ## Playground / Example
 
 ```bash
