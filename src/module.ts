@@ -8,69 +8,74 @@ async function listFilesInDirectory(
   i18nDefaultLocale: string,
   i18nStrategy: string,
 ): Promise<string[]> {
-  let entries = await fs.readdir(directory, {
-    withFileTypes: true,
-  })
+  try {
+    let entries = await fs.readdir(directory, {
+      withFileTypes: true,
+    })
 
-  const regexStartDigits = /^\d+\./
+    const regexStartDigits = /^\d+\./
 
-  // Remove junk files
-  entries = entries.filter((item) => !/(^|\/)\.[^/.]|^_dir/g.test(item.name))
+    // Remove junk files
+    entries = entries.filter((item) => !/(^|\/)\.[^/.]|^_dir/g.test(item.name))
 
-  const routeSlugify = (str: string) =>
-    str.replace(regexStartDigits, '').toLowerCase()
+    const routeSlugify = (str: string) =>
+      str.replace(regexStartDigits, '').toLowerCase()
 
-  const files = await Promise.all(
-    entries.map(async (entry) => {
-      const fullPath = path.join(directory, entry.name)
-      const cleanPrefix = routeSlugify(prefix)
+    const files = await Promise.all(
+      entries.map(async (entry) => {
+        const fullPath = path.join(directory, entry.name)
+        const cleanPrefix = routeSlugify(prefix)
 
-      const preventDefaultLocaleAsPrefix =
-        i18nStrategy == 'prefix_except_default' &&
-        cleanPrefix == i18nDefaultLocale
+        const preventDefaultLocaleAsPrefix =
+          i18nStrategy == 'prefix_except_default' &&
+          cleanPrefix == i18nDefaultLocale
 
-      //Directory only
-      if (entry.isDirectory()) {
-        const directoryName = routeSlugify(entry.name)
+        //Directory only
+        if (entry.isDirectory()) {
+          const directoryName = routeSlugify(entry.name)
 
-        //Build final directory path
-        const directoryPath = path.join(
+          //Build final directory path
+          const directoryPath = path.join(
+            preventDefaultLocaleAsPrefix ? '' : cleanPrefix,
+            directoryName,
+          )
+
+          //List all files in the directory
+          return listFilesInDirectory(
+            fullPath,
+            directoryPath,
+            i18nDefaultLocale,
+            i18nStrategy,
+          )
+        }
+
+        //Strip file extension and strip number prefix and convert to lowercase
+        const name = routeSlugify(
+          path.basename(entry.name, path.extname(entry.name)),
+        )
+
+        //Build fina file path
+        //Prevent default locale as prefix if strategy is prefix_except_default
+        let finalPath = path.join(
+          '/',
           preventDefaultLocaleAsPrefix ? '' : cleanPrefix,
-          directoryName,
+          name === 'index' ? '' : name,
         )
 
-        //List all files in the directory
-        return listFilesInDirectory(
-          fullPath,
-          directoryPath,
-          i18nDefaultLocale,
-          i18nStrategy,
-        )
-      }
+        //Replace backslashes with slashes
+        if (path.sep === '\\') {
+          finalPath = finalPath.replace(/\\/g, '/')
+        }
 
-      //Strip file extension and strip number prefix and convert to lowercase
-      const name = routeSlugify(
-        path.basename(entry.name, path.extname(entry.name)),
-      )
-
-      //Build fina file path
-      //Prevent default locale as prefix if strategy is prefix_except_default
-      let finalPath = path.join(
-        '/',
-        preventDefaultLocaleAsPrefix ? '' : cleanPrefix,
-        name === 'index' ? '' : name,
-      )
-
-      //Replace backslashes with slashes
-      if (path.sep === '\\') {
-        finalPath = finalPath.replace(/\\/g, '/')
-      }
-
-      return finalPath
-    }),
-  )
-
-  return Array.prototype.concat(...files)
+        return finalPath
+      }),
+    )
+    return Array.prototype.concat(...files)
+  }
+  catch (err) {
+    console.error(err)
+    return []
+  }
 }
 
 export default defineNuxtModule({
@@ -83,8 +88,6 @@ export default defineNuxtModule({
     const i18nDefaultLocale = 'i18n' in nuxt.options ? (nuxt.options.i18n as { defaultLocale?: string }).defaultLocale || '' : ''
     const i18nStrategy = 'i18n' in nuxt.options ? (nuxt.options.i18n as { strategy?: string }).strategy || '' : ''
 
-    console.info('NuxtContentRoutes:Directory:', directory)
-    
     if ('i18n' in nuxt.options) {
       console.info(
         'NuxtContentRoutes:i18n:',
@@ -99,12 +102,18 @@ export default defineNuxtModule({
       i18nDefaultLocale,
       i18nStrategy,
     )
-
-    nuxt.hook('nitro:config', (nitroConfig) => {
-      if (nitroConfig && nitroConfig.prerender) {
-        nitroConfig.prerender.routes = nitroConfig.prerender.routes || []
-        nitroConfig.prerender.routes.push(...paths)
-      }
-    })
+    
+    if (paths.length > 0) {
+      console.info('NuxtContentRoutes:Directory:', directory)  
+      nuxt.hook('nitro:config', (nitroConfig) => {
+        if (nitroConfig && nitroConfig.prerender) {
+          nitroConfig.prerender.routes = nitroConfig.prerender.routes || []
+          nitroConfig.prerender.routes.push(...paths)
+        }
+      })
+    }
+    else {
+      console.info('NuxtContentRoutes:Error:', 'Nuxt Content directory missing.')
+    }
   },
 })
