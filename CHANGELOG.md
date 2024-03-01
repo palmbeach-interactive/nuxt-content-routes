@@ -1,5 +1,34 @@
 # Changelog
 
+## v1.0.11
+
+[compare changes](https://github.com/palmbeach-interactive/nuxt-content-routes/compare/v1.0.7...v1.0.11)
+
+### 🩹 Fixes
+
+- #4 - check nuxt content directory existence ([#4](https://github.com/palmbeach-interactive/nuxt-content-routes/issues/4))
+
+### 📖 Documentation
+
+- Update readme ([e795c91](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/e795c91))
+- Remove tasklist (not working in readme.md) ([1db96df](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/1db96df))
+- Add contribution note ([dfd35f1](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/dfd35f1))
+
+### 📦 Build
+
+- Update nuxt 3.7.5 ([de17e61](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/de17e61))
+
+### 🏡 Chore
+
+- **release:** V1.0.8 ([a901484](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/a901484))
+- Update Nuxt version in package.json ([9513072](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/9513072))
+- Update dependencies ([9f14783](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/9f14783))
+- **release:** V1.0.10 ([69da21b](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/69da21b))
+
+### ❤️ Contributors
+
+- Marc Widmer <marc@pbi.io>
+
 ## v1.0.10
 
 [compare changes](https://github.com/palmbeach-interactive/nuxt-content-routes/compare/v1.0.9...v1.0.10)
