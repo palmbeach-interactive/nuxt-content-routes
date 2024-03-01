@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.10
+
+[compare changes](https://github.com/palmbeach-interactive/nuxt-content-routes/compare/v1.0.9...v1.0.10)
+
+### 🏡 Chore
+
+- Update dependencies ([9f14783](https://github.com/palmbeach-interactive/nuxt-content-routes/commit/9f14783))
+
+### ❤️ Contributors
+
+- Marc Widmer <marc@pbi.io>
+
 ## v1.0.8
 
 [compare changes](https://github.com/palmbeach-interactive/nuxt-content-routes/compare/v1.0.7...v1.0.8)
