@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## v1.0.8
 
 [compare changes](https://github.com/palmbeach-interactive/nuxt-content-routes/compare/v1.0.7...v1.0.8)
@@ -168,7 +167,6 @@
 
 ## v1.0.1
 
-
 ### 🩹 Fixes
 
 - Remove unneeded plugin (7161bba)
@@ -178,4 +176,3 @@
 ### ❤️  Contributors
 
 - Marc Widmer <marc@pbi.io>
-
